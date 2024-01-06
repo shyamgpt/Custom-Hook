@@ -8,9 +8,14 @@ export default function Reset(){
       let email = localStorage.getItem("email");
 
       if(email){
+        //if(), will check, whether the email is present or not
         setEmail(email);
       }
     },[]);
+
+    useEffect(() =>{
+      localStorage.setItem("email", email);
+    },[email]);
     
     return(
         <>

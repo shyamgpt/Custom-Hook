@@ -2,7 +2,17 @@ import { useState, useEffect } from "react";
 
 export default function Login(){
    const [email,setEmail] = useState("");
-   const [password, setPassword] = useState("");  
+   const [password, setPassword] = useState(""); 
+   
+   
+   useEffect(() =>{
+    let email = localStorage.getItem("email");
+
+    if(email){
+      //if(), will check, whether the email is present or not
+      setEmail(email);
+    }
+  },[]);
 
    useEffect(() =>{
     localStorage.setItem("email", email)
@@ -10,6 +20,8 @@ export default function Login(){
   //When do i want to this effect happen, whenever email is change or getting updated
   }, [email])
   // i want this effect will work, whenever my email is getting chnages
+
+  
 
 
     return(

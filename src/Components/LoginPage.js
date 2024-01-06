@@ -1,24 +1,30 @@
 import { useState, useEffect } from "react";
+import useLocalStorage from "./useLocalStorage";
 
 export default function Login(){
-   const [email,setEmail] = useState("");
+   
    const [password, setPassword] = useState(""); 
    
+   //Object destructuring -->
+   const {email, setEmail} = useLocalStorage();
+
+  //  const [email,setEmail] = useState("");
    
-   useEffect(() =>{
-    let email = localStorage.getItem("email");
+   
+  //  useEffect(() =>{
+  //   let email = localStorage.getItem("email");
 
-    if(email){
-      //if(), will check, whether the email is present or not
-      setEmail(email);
-    }
-  },[]);
+  //   if(email){
+  //     //if(), will check, whether the email is present or not
+  //     setEmail(email);
+  //   }
+  // },[]);
 
-   useEffect(() =>{
-    localStorage.setItem("email", email)
-    // localStorage.setItem("u can give any name ",u can give, what u want to save here(here u want to save "email") )
-  //When do i want to this effect happen, whenever email is change or getting updated
-  }, [email])
+  //  useEffect(() =>{
+  //   localStorage.setItem("email", email)
+  //   // localStorage.setItem("u can give any name ",u can give, what u want to save here(here u want to save "email") )
+  // //When do i want to this effect happen, whenever email is change or getting updated
+  // }, [email])
   // i want this effect will work, whenever my email is getting chnages
 
   
